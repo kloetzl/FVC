@@ -1,0 +1,12 @@
+phi
+trivial
+no_fvc
+*.in
+common/RMQ/Makefile
+*.a
+
+fvc.sublime-*
+*.gcda
+*.gcno
+*.o
+
