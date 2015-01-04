@@ -61,7 +61,7 @@ typedef struct {
 	char *FVC;
 } esa_t;
 
-void all_matches(esa_t *C, std::string Q);
+void all_matches(esa_t *C, const std::string& Q);
 lcp_inter_t get_match( const esa_t *C, const char *query, size_t qlen);
 int esa_init( esa_t *C, const char *S, size_t length);
 void esa_free( esa_t *C);

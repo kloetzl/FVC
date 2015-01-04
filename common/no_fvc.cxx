@@ -54,7 +54,7 @@ void esa_free( esa_t *C){
 	free( C->LCP);
 }
 
-void all_matches(esa_t *C, std::string Q){
+void all_matches(esa_t *C, const std::string& Q){
 	auto qlen = Q.size();
 	auto T = Q.data();
 
