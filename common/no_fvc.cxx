@@ -52,7 +52,6 @@ void esa_free( esa_t *C){
 	free( C->SA);
 	free( C->ISA);
 	free( C->LCP);
-	free( C->rmq_cache);
 }
 
 void all_matches(esa_t *C, std::string Q){
