@@ -11,10 +11,34 @@ int fvc_wrapper(esa_t *C){
 	const char *S = C->S;
 	const int *SA = C->SA;
 	const int *LCP= C->LCP;
+	int *ISA = (int*) malloc(len * sizeof(int));
+	if(!ISA){
+		return 2;
+	}
+
+	for(size_t i=0; i< len; i++){
+		ISA[SA[i]] = i;
+	}
 
 	FVC[0] = '\0';
-	
 
+	int l = 0;
+	for(size_t i=0; i< len; i++){
+		int j = ISA[i];
+		if( j > 0){
+			size_t k = SA[j-1];
+			while( S[k+l] == S[i+l]){
+				l++;
+			}
+			FVC[j] = S[i+l];
+			l--;
+			if( l < 0){
+				l = 0;
+			}
+		}
+	}
+
+	free(ISA);
 	return 0;
 }
 

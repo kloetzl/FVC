@@ -1,6 +1,7 @@
 phi
 trivial
 no_fvc
+kasai
 *.in
 *.a
 
