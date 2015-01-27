@@ -27,7 +27,7 @@ int fvc_wrapper(esa_t *C){
 		int j = ISA[i];
 		if( j > 0){
 			size_t k = SA[j-1];
-			while( S[k+l] == S[i+l]){
+			while( k+l < len && S[k+l] == S[i+l]){
 				l++;
 			}
 			FVC[j] = S[i+l];
@@ -86,7 +86,7 @@ int lcp_wrapper( esa_t *C){
 	for( i = 0; i< len ; i++){
 		k = PHI[i];
 		if( k != -1 ){
-			while( S[k+l] == S[i+l]){
+			while( k+l < len && S[k+l] == S[i+l]){
 				l++;
 			}
 			PLCP[i] = l;
