@@ -20,4 +20,4 @@ no_fvc: common/driver.cxx common/no_fvc.cxx common/RMQ/libRMQ_improved.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $^ $(LIBS)
 
 clean:
-	-rm -rf trivial phi
+	-rm -rf trivial phi kasai no_fvc
