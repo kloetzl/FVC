@@ -45,7 +45,6 @@
 
 /* Global variables */
 int FLAGS = 0;
-int THREADS = 1;
 
 void usage(void);
 void version(void);
@@ -97,33 +96,6 @@ int main( int argc, char *argv[]){
 					subjects.push_back(std::move(buffer.str()));
 				}
 				break;
-#ifdef _OPENMP
-			case 't':
-				{
-					errno = 0;
-					char *end;
-					long unsigned int threads = strtoul( optarg, &end, 10);
-
-					if( errno || end == optarg || *end != '\0'){
-						warnx(
-							"Expected a number for -t argument, but '%s' was given. "
-							"Ignoring -t argument.", optarg
-						);
-						break;
-					}
-
-					if( threads > (long unsigned int) omp_get_num_procs() ){
-						warnx(
-							"The number of threads to be used, is greater then the number of available processors; "
-							"Ignoring -t %lu argument.", threads
-						);
-						break;
-					}
-
-					THREADS = threads;
-				}
-				break;
-#endif
 			case '?': /* intentional fall-through */
 			default:
 				usage();
